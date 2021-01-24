@@ -1,24 +1,60 @@
 #include <time.h>
 #include <iostream>
 
+
+
 using namespace std;
+
+
+bool eOrdinato(int vect[]){
+
+    for(int b=0; b<9; b++){
+
+        if(vect[b] > vect[(b+1)]) return false;
+    }
+
+    return true;
+}
+
+
 
 int main(){
 
     srand(time(NULL));
 
-    int v[20];
+    int num[20];
+    int y;
 
-    cout << "Ora genero 20 numeri random e li metto in ordine decrescente" << endl;
+    cout << "Array non ordinato: " << endl;
 
-    for(int i=0; i<20; i++){
-        v[i] = (rand()%1000);
-        cout << v[i] << "  ";
+    for(int i=0; i<10; i++){
+
+        num[i] = rand()%1001;
+        cout << num[i] << endl;
     }
 
-    for 
+
+    while(eOrdinato(num) == false){
+
+        for(int x=0; x<9; x++){
+
+            if(num[x] > num[(x+1)]){
+
+                y = num[x];
+                num[x] = num[(x+1)];
+                num[(x+1)] = y;
+            }
+        }
 
 
+    }
 
+    cout << "L'array ordinato in ordine crescente e': " << endl;
 
+    for(int m=0; m<10; m++){
+
+        cout << num[m] << endl;
+    }
+
+    return 0;
 }
